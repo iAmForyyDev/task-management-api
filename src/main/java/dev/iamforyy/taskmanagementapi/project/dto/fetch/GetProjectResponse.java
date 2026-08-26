@@ -1,7 +1,7 @@
 package dev.iamforyy.taskmanagementapi.project.dto.fetch;
 
 import dev.iamforyy.taskmanagementapi.project.Project;
-import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.iamforyy.taskmanagementapi.task.dto.TaskResponse;
 import dev.iamforyy.taskmanagementapi.user.dto.GetUserResponse;
 
 import java.time.Instant;
@@ -14,7 +14,7 @@ public record GetProjectResponse(
         String color,
         Instant createdAt,
         GetUserResponse owner,
-        List<UpdateTaskResponse> tasks
+        List<TaskResponse> tasks
 ) {
 
     public static GetProjectResponse of(final Project project) {
@@ -26,7 +26,7 @@ public record GetProjectResponse(
                 project.createdAt(),
                 GetUserResponse.of(project.owner()),
                 project.tasks().stream()
-                        .map(task -> new UpdateTaskResponse(
+                        .map(task -> new TaskResponse(
                                 task.id(),
                                 task.title(),
                                 task.description(),

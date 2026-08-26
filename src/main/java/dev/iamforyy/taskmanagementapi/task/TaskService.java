@@ -6,7 +6,7 @@ import dev.iamforyy.taskmanagementapi.comment.dto.CommentResponse;
 import dev.iamforyy.taskmanagementapi.common.exception.NotFoundException;
 import dev.iamforyy.taskmanagementapi.project.dto.update.UpdateTaskRequest;
 import dev.iamforyy.taskmanagementapi.task.dto.CreateCommentRequest;
-import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.iamforyy.taskmanagementapi.task.dto.TaskResponse;
 import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskStatusRequest;
 import dev.iamforyy.taskmanagementapi.user.User;
 import dev.iamforyy.taskmanagementapi.user.UserRepository;
@@ -32,11 +32,11 @@ public class TaskService {
         this.commentRepository = commentRepository;
     }
 
-    public UpdateTaskResponse fetchTaskById(final Long taskId) {
+    public TaskResponse fetchTaskById(final Long taskId) {
         final Task task = this.taskRepository.findById(taskId)
                 .orElseThrow(() -> new NotFoundException("Task not found!"));
 
-        return new UpdateTaskResponse(
+        return new TaskResponse(
                 taskId,
                 task.title(),
                 task.description(),

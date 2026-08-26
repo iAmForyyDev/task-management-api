@@ -7,7 +7,7 @@ import dev.iamforyy.taskmanagementapi.user.User;
 
 import java.time.Instant;
 
-public record UpdateTaskResponse(
+public record TaskResponse(
         Long id,
         String title,
         String description,

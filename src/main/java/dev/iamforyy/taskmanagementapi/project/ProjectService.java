@@ -9,7 +9,7 @@ import dev.iamforyy.taskmanagementapi.project.dto.create.CreateProjectRequest;
 import dev.iamforyy.taskmanagementapi.project.dto.fetch.GetProjectResponse;
 import dev.iamforyy.taskmanagementapi.task.*;
 import dev.iamforyy.taskmanagementapi.task.dto.CreateTaskRequest;
-import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.iamforyy.taskmanagementapi.task.dto.TaskResponse;
 import dev.iamforyy.taskmanagementapi.user.User;
 import dev.iamforyy.taskmanagementapi.user.UserPrincipal;
 import dev.iamforyy.taskmanagementapi.user.UserRepository;
@@ -124,7 +124,7 @@ public class ProjectService {
         return "done";
     }
 
-    public List<UpdateTaskResponse> fetchTasksByProjectId(
+    public List<TaskResponse> fetchTasksByProjectId(
             final Long projectId,
             final TaskStatus status,
             final TaskPriority priority,
@@ -155,7 +155,7 @@ public class ProjectService {
 
         return this.taskRepository
                 .findAll(specification, pageable)
-                .map(task -> new UpdateTaskResponse(
+                .map(task -> new TaskResponse(
                                 task.id(),
                                 task.title(),
                                 task.description(),

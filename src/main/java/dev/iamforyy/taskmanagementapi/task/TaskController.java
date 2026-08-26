@@ -3,7 +3,7 @@ package dev.iamforyy.taskmanagementapi.task;
 import dev.iamforyy.taskmanagementapi.comment.dto.CommentResponse;
 import dev.iamforyy.taskmanagementapi.project.dto.update.UpdateTaskRequest;
 import dev.iamforyy.taskmanagementapi.task.dto.CreateCommentRequest;
-import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.iamforyy.taskmanagementapi.task.dto.TaskResponse;
 import dev.iamforyy.taskmanagementapi.task.dto.UpdateTaskStatusRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -21,7 +21,7 @@ public class TaskController {
     }
 
     @GetMapping("/{taskId}")
-    public UpdateTaskResponse fetchTaskById(final @PathVariable Long taskId) {
+    public TaskResponse fetchTaskById(final @PathVariable Long taskId) {
         return this.taskService.fetchTaskById(taskId);
     }
 
