@@ -6,7 +6,7 @@ import dev.mantiel.taskmanagementapi.comment.dto.CommentResponse;
 import dev.mantiel.taskmanagementapi.common.exception.NotFoundException;
 import dev.mantiel.taskmanagementapi.project.dto.update.UpdateTaskRequest;
 import dev.mantiel.taskmanagementapi.task.dto.CreateCommentRequest;
-import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.mantiel.taskmanagementapi.task.dto.TaskResponse;
 import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskStatusRequest;
 import dev.mantiel.taskmanagementapi.user.User;
 import dev.mantiel.taskmanagementapi.user.UserRepository;
@@ -32,11 +32,11 @@ public class TaskService {
         this.commentRepository = commentRepository;
     }
 
-    public UpdateTaskResponse fetchTaskById(final Long taskId) {
+    public TaskResponse fetchTaskById(final Long taskId) {
         final Task task = this.taskRepository.findById(taskId)
                 .orElseThrow(() -> new NotFoundException("Task not found!"));
 
-        return new UpdateTaskResponse(
+        return new TaskResponse(
                 taskId,
                 task.title(),
                 task.description(),

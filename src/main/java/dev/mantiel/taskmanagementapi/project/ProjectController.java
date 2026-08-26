@@ -8,7 +8,7 @@ import dev.mantiel.taskmanagementapi.project.dto.fetch.GetProjectResponse;
 import dev.mantiel.taskmanagementapi.task.TaskPriority;
 import dev.mantiel.taskmanagementapi.task.TaskStatus;
 import dev.mantiel.taskmanagementapi.task.dto.CreateTaskRequest;
-import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.mantiel.taskmanagementapi.task.dto.TaskResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
@@ -70,7 +70,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}/tasks")
-    public List<UpdateTaskResponse> fetchTasksByProjectId(
+    public List<TaskResponse> fetchTasksByProjectId(
             final @PathVariable Long projectId,
             final @RequestParam(required = false) TaskStatus status,
             final @RequestParam(required = false) TaskPriority priority,

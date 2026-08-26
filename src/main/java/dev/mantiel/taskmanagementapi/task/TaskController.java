@@ -3,7 +3,7 @@ package dev.mantiel.taskmanagementapi.task;
 import dev.mantiel.taskmanagementapi.comment.dto.CommentResponse;
 import dev.mantiel.taskmanagementapi.project.dto.update.UpdateTaskRequest;
 import dev.mantiel.taskmanagementapi.task.dto.CreateCommentRequest;
-import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.mantiel.taskmanagementapi.task.dto.TaskResponse;
 import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskStatusRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -21,7 +21,7 @@ public class TaskController {
     }
 
     @GetMapping("/{taskId}")
-    public UpdateTaskResponse fetchTaskById(final @PathVariable Long taskId) {
+    public TaskResponse fetchTaskById(final @PathVariable Long taskId) {
         return this.taskService.fetchTaskById(taskId);
     }
 

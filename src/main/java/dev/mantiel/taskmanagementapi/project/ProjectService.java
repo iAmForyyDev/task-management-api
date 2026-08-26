@@ -9,7 +9,7 @@ import dev.mantiel.taskmanagementapi.project.dto.create.CreateProjectRequest;
 import dev.mantiel.taskmanagementapi.project.dto.fetch.GetProjectResponse;
 import dev.mantiel.taskmanagementapi.task.*;
 import dev.mantiel.taskmanagementapi.task.dto.CreateTaskRequest;
-import dev.mantiel.taskmanagementapi.task.dto.UpdateTaskResponse;
+import dev.mantiel.taskmanagementapi.task.dto.TaskResponse;
 import dev.mantiel.taskmanagementapi.user.User;
 import dev.mantiel.taskmanagementapi.user.UserPrincipal;
 import dev.mantiel.taskmanagementapi.user.UserRepository;
@@ -124,7 +124,7 @@ public class ProjectService {
         return "done";
     }
 
-    public List<UpdateTaskResponse> fetchTasksByProjectId(
+    public List<TaskResponse> fetchTasksByProjectId(
             final Long projectId,
             final TaskStatus status,
             final TaskPriority priority,
@@ -155,7 +155,7 @@ public class ProjectService {
 
         return this.taskRepository
                 .findAll(specification, pageable)
-                .map(task -> new UpdateTaskResponse(
+                .map(task -> new TaskResponse(
                                 task.id(),
                                 task.title(),
                                 task.description(),
