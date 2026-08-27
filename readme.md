@@ -217,18 +217,26 @@ docker compose up
 
 ## Project Goals
 
-Demonstrate production-oriented backend development: authentication/authorization with Spring Security, Spring Data JPA + Hibernate, relational modeling, layered architecture, domain/DTO separation, validation, centralized error handling, integration testing, and containerization.
+This project demonstrates production-oriented backend development practices, including:
+
+- Authentication & authorization with Spring Security (JWT access + rotating refresh tokens, role-based authorization)
+- Persistence with Spring Data JPA + Hibernate and relational data modeling
+- Layered architecture with clear domain/DTO separation
+- Request validation and centralized error handling
+- Integration testing with Testcontainers
+- Containerization for reproducible deployment
 
 ## Future Improvements
 
-- [X] OpenAPI / Swagger documentation
+- [x] OpenAPI / Swagger documentation
 - [ ] Rate limiting
 - [ ] Redis caching
 - [ ] Better refresh token reuse detection
 - [ ] Email verification & password reset
 - [ ] Account management
 - [ ] Advanced task filtering
-- [ ] Project membership and permissions
+- [ ] Project-scoped membership - restrict project visibility to the creator and users explicitly added by the project owner
+- [ ] Per-project roles/permissions (e.g. owner vs. member, beyond the current global role check)
 - [ ] Audit logging
 - [ ] CI/CD improvements & production deployment
 
