@@ -1,5 +1,6 @@
 package dev.mantiel.taskmanagementapi.auth;
 
+import dev.mantiel.taskmanagementapi.security.RateLimiter;
 import dev.mantiel.taskmanagementapi.user.User;
 import dev.mantiel.taskmanagementapi.user.UserPrincipal;
 import dev.mantiel.taskmanagementapi.user.UserRepository;
@@ -19,13 +20,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserRepository userRepository;
+    private final RateLimiter rateLimiter;
 
     public JwtAuthenticationFilter(
             final JwtService jwtService,
-            final UserRepository userRepository
+            final UserRepository userRepository,
+            final RateLimiter rateLimiter
     ) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
+        this.rateLimiter = rateLimiter;
     }
 
     @Override
