@@ -221,16 +221,16 @@ Demonstrate production-oriented backend development: authentication/authorizatio
 
 ## Future Improvements
 
-- OpenAPI / Swagger documentation
-- Rate limiting
-- Redis caching
-- Better refresh token reuse detection
-- Email verification & password reset
-- Account management
-- Advanced task filtering
-- Project membership and permissions
-- Audit logging
-- CI/CD improvements & production deployment
+- [X] OpenAPI / Swagger documentation
+- [ ] Rate limiting
+- [ ] Redis caching
+- [ ] Better refresh token reuse detection
+- [ ] Email verification & password reset
+- [ ] Account management
+- [ ] Advanced task filtering
+- [ ] Project membership and permissions
+- [ ] Audit logging
+- [ ] CI/CD improvements & production deployment
 
 ## License
 
