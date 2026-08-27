@@ -229,7 +229,7 @@ This project demonstrates production-oriented backend development practices, inc
 ## Future Improvements
 
 - [x] OpenAPI / Swagger documentation
-- [ ] Rate limiting
+- [X] Rate limiting
 - [ ] Redis caching
 - [ ] Better refresh token reuse detection
 - [ ] Email verification & password reset
