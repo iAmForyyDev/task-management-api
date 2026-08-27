@@ -27,7 +27,7 @@ Java 25 · Spring Boot · Spring Security · Spring Data JPA · Hibernate · Pos
 Layered architecture with domain based package organization (controller → service → repository), separating entities (persistent domain objects) from DTOs (API contract).
 
 ```text
-src/main/java/dev/iamforyy/taskmanagmentapi/
+src/main/java/dev/iamforyy/taskmanagementapi/
 ├── auth/       AuthController, AuthService, JwtService
 ├── user/       User, UserController, UserService, UserRepository
 ├── project/    Project, ProjectController, ProjectService, ProjectRepository
@@ -241,5 +241,4 @@ This project demonstrates production-oriented backend development practices, inc
 - [ ] CI/CD improvements & production deployment
 
 ## License
-
 MIT License.
