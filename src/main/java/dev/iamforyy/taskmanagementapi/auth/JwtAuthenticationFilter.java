@@ -1,6 +1,5 @@
 package dev.iamforyy.taskmanagementapi.auth;
 
-import dev.iamforyy.taskmanagementapi.security.RateLimiter;
 import dev.iamforyy.taskmanagementapi.user.User;
 import dev.iamforyy.taskmanagementapi.user.UserPrincipal;
 import dev.iamforyy.taskmanagementapi.user.UserRepository;
@@ -20,16 +19,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserRepository userRepository;
-    private final RateLimiter rateLimiter;
 
     public JwtAuthenticationFilter(
             final JwtService jwtService,
-            final UserRepository userRepository,
-            final RateLimiter rateLimiter
+            final UserRepository userRepository
     ) {
         this.jwtService = jwtService;
         this.userRepository = userRepository;
-        this.rateLimiter = rateLimiter;
     }
 
     @Override
