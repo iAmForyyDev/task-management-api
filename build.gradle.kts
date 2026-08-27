@@ -23,6 +23,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.1.0")
+    implementation("com.bucket4j:bucket4j_jdk17-core:8.19.0")
+    implementation("com.bucket4j:bucket4j_jdk17-caffeine:8.19.0")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.2.4")
 
     runtimeOnly("org.postgresql:postgresql")
 

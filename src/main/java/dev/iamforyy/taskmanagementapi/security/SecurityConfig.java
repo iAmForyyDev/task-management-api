@@ -18,8 +18,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class SecurityConfig {
 
+    private final RateLimiterFilter rateLimiterFilter;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-    public SecurityConfig(final JwtAuthenticationFilter jwtAuthenticationFilter) {
+
+    public SecurityConfig(
+            final RateLimiterFilter rateLimiterFilter,
+            final JwtAuthenticationFilter jwtAuthenticationFilter
+    ) {
+        this.rateLimiterFilter = rateLimiterFilter;
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
@@ -43,6 +49,7 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
+                .addFilterBefore(this.rateLimiterFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(this.jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
